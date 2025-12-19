@@ -47,7 +47,7 @@
 .img-cards-grid__title{
   margin: 0 0 10px;
   font-family: var(--wp--preset--font-family--code-pro);
-  font-size: var(--wp--preset--font-size--h2, clamp(24px, 2.6vw, 32px));
+  font-size: var(--wp--preset--font-size--h2, clamp(32px, 3.4vw, 64px));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.06em;

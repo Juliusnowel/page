@@ -1,0 +1,151 @@
+/* ===== CTA Image Panel (vite-child/cta-image-panel) ===== */
+
+.wp-block-vite-child-cta-image-panel.cta-img-panel{
+  position: relative;
+  overflow: hidden;
+
+  /*
+    IMPORTANT:
+    Don't redefine --site-padding-* here.
+    Other blocks rely on global values (and/or --page-gutter-*).
+    We only *consume* them with fallbacks.
+  */
+
+  --pad-x-desktop: var(--page-gutter-left, var(--site-padding-desktop, 250px));
+  --pad-x-desktop-r: var(--page-gutter-right, var(--site-padding-desktop, 250px));
+
+  padding-top: 120px;
+  padding-bottom: 120px;
+  padding-left: var(--pad-x-desktop);
+  padding-right: var(--pad-x-desktop-r);
+
+  /* defaults (overridden by inline vars from render.php) */
+  --panel-bg: #E2E2E2;
+  --panel-radius: 56px;
+  --panel-max: 1200px;
+  --bg-image: none;
+  --bg-opacity: 0.18;
+
+  background:
+  radial-gradient(900px 500px at 5% 50%, rgba(255, 110, 255, 0.35), transparent 48%),
+  #131214;
+}
+
+/* tablet */
+@media (max-width: 1200px){
+  .wp-block-vite-child-cta-image-panel.cta-img-panel{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: var(--page-gutter-left, var(--site-padding-tablet, 120px));
+    padding-right: var(--page-gutter-right, var(--site-padding-tablet, 120px));
+  }
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .wp-block-vite-child-cta-image-panel.cta-img-panel{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: var(--page-gutter-left, var(--site-padding-mobile, 24px));
+    padding-right: var(--page-gutter-right, var(--site-padding-mobile, 24px));
+  }
+}
+
+/* The pill panel */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__card{
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--panel-max);
+  border-radius: var(--panel-radius);
+  background: var(--panel-bg);
+  overflow: hidden;
+}
+
+/* background image overlay with opacity */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--bg-opacity);
+  pointer-events: none;
+}
+
+/* subtle inner shading (helps readability) */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(900px 520px at 50% 20%, rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.wp-block-vite-child-cta-image-panel .cta-img-panel__inner{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: clamp(28px, 4vw, 56px);
+}
+
+/* H2 */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__title{
+  margin: 0 0 10px;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: clamp(32px, 4.4vw, 64px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0b0b10;
+}
+
+/* P */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__text{
+  margin: 0 auto 18px;
+  max-width: 62ch;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--wp--preset--font-size--p, clamp(16px, 1.6vw, 20px));
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(11,11,16,0.78);
+}
+
+/* CTA button */
+.wp-block-vite-child-cta-image-panel .cta-img-panel__btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 38px;
+  border-radius: 12px;
+  text-decoration: none;
+
+  background: rgba(11,11,16,0.85);
+  color: #fff;
+
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--wp--preset--font-size--label, clamp(13px, 1.2vw, 16px));
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  border: 1px solid rgba(0,0,0,0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.wp-block-vite-child-cta-image-panel .cta-img-panel__btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+  background: rgba(11,11,16,0.92);
+}
+
+/* weight shrink on small screens */
+@media (max-width: 768px){
+  .wp-block-vite-child-cta-image-panel .cta-img-panel__title,
+  .wp-block-vite-child-cta-image-panel .cta-img-panel__btn{
+    font-weight: 400;
+  }
+}

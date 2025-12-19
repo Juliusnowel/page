@@ -1,0 +1,155 @@
+/* 1. Main Background Gradient */
+.culture-section-wrapper h1{
+    text-align: left !important;
+}
+.culture-section-wrapper.wp-block-group {
+    background:
+        radial-gradient(1200px 700px at 15% 55%, rgba(60, 160, 255, 0.62), transparent 58%),
+        radial-gradient(900px 600px at 88% 40%, rgba(124, 65, 243, 0.55), transparent 55%),
+        #131214 !important;
+    color: #fff;
+    overflow: hidden; /* Ensures nothing spills out */
+    min-height: 800px;
+    --culture-padding-inline: var(--site-padding-desktop, 250px);
+    padding: 80px var(--culture-padding-inline) 100px;
+    position: relative;
+}
+.wp-block-group{
+    margin-block-start: 0px !important;
+}
+/* 2. Typography Container */
+.culture-typography {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1;
+}
+/* 3. "OUR" Styling */
+.culture-our {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 7vw, 150px);
+    margin: 0;
+    position: absolute;
+    top: -0.6em;
+    left: 0;
+    z-index: 10;
+    color: #fff;
+    /* Simulate the stylized 'O' swirl using standard font features */
+    letter-spacing: -2px; 
+}
+
+/* 4. "CULTURE" Styling */
+.culture-main {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-weight: 700;
+    font-size: clamp(3.5rem, 7vw, 150px);
+    margin: 0;
+    padding-left: 0ch; /* Pushes CULTURE to the right to make room for OUR */
+    padding-top: 0.3ch;
+    letter-spacing: -3px; /* Tight tracking like the image */
+    color: #fff;
+    position: relative;
+    z-index: 5;
+    margin-left:100px !important;
+}
+
+/* 5. The Arrow */
+.culture-arrow svg {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin-left: auto; /* Aligns to right */
+    margin-top: -180px; /* Pulls arrow up to overlap */
+}
+
+/* 6. Grid Layout System (Flexbox) */
+.culture-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; /* Center the grid vertically if needed */
+}
+
+.culture-grid-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center; /* Center cards in row */
+}
+
+/* 7. The Cards (Images) */
+.culture-card {
+    position: relative;
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden;
+    min-height: 320px;
+    background-color: #d1d1d1; /* Placeholder grey */
+}
+
+.culture-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the rounded box */
+    display: block;
+}
+
+/* 8. Sizing Logic (60/40 Split) */
+.culture-card.large {
+    flex: 6; /* Takes up 60% space */
+}
+.culture-card.small {
+    flex: 4; /* Takes up 40% space */
+}
+
+@media (max-width: 1745px) {
+    .culture-section-wrapper.wp-block-group {
+        --culture-padding-inline: 100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .culture-section-wrapper.wp-block-group {
+        --culture-padding-inline: 80px;
+    }
+}
+
+/* 9. Mobile Responsiveness */
+@media (max-width: 768px) {
+    .culture-section-wrapper.wp-block-group {
+        --culture-padding-inline: var(--site-padding-mobile, 24px);
+    }
+
+    .culture-header-row {
+        flex-direction: row; /* Keep arrow next to text on tablet */
+    }
+    
+    .culture-grid-row {
+        flex-direction: column; /* Stack images on mobile */
+    }
+    
+    .culture-card {
+        width: 100%;
+        height: 250px; /* Fixed height for mobile stacking */
+        min-height: 250px;
+    }
+
+    /* Adjust typography for mobile */
+    .culture-our {
+        position: relative;
+        top: 0;
+        margin-bottom: -10px;
+        font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+    .culture-main {
+        padding-left: 0;
+        padding-top: 0;
+        font-size: clamp(3.5rem, 10vw, 5rem);
+        margin-left: 0 !important;
+    }
+
+    .culture-arrow svg {
+        width: 80px;
+        margin-top: 0;
+    }
+}

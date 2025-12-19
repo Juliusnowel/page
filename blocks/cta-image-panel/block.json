@@ -1,0 +1,46 @@
+{
+    "apiVersion": 2,
+    "name": "vite-child/cta-image-panel",
+    "title": "CTA Image Panel",
+    "category": "design",
+    "icon": "align-center",
+    "description": "Centered CTA panel with a background image overlay, heading, text, and button.",
+    "keywords": ["cta", "panel", "banner", "image", "card"],
+    "textdomain": "vite-child",
+    "supports": {
+      "align": ["wide", "full"],
+      "anchor": true,
+      "spacing": { "margin": true, "padding": true },
+      "color": { "text": false, "background": false, "link": false }
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+      "title": { "type": "string", "default": "LOREM IPSUM" },
+      "text": { "type": "string", "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+      "ctaText": { "type": "string", "default": "CTA" },
+      "ctaUrl": { "type": "string", "default": "#" },
+  
+      "bgImageUrl": { "type": "string", "default": "" },
+      "bgOpacity": { "type": "number", "default": 0.18 },
+  
+      "panelBg": { "type": "string", "default": "#E2E2E2" },
+      "panelRadius": { "type": "number", "default": 56 },
+      "panelMaxWidth": { "type": "number", "default": 1200 }
+    },
+    "example": {
+      "attributes": {
+        "align": "wide",
+        "title": "LOREM IPSUM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "ctaText": "CTA",
+        "ctaUrl": "#",
+        "bgImageUrl": "https://picsum.photos/1600/900?random=18",
+        "bgOpacity": 0.14,
+        "panelBg": "#E2E2E2",
+        "panelRadius": 56,
+        "panelMaxWidth": 1200
+      }
+    }
+  }
+  

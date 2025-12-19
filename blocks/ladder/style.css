@@ -1,0 +1,357 @@
+/* --- Wrapper Background --- */
+.role-section-wrapper.wp-block-group {
+    background:
+        radial-gradient(1200px 700px at 15% 55%, rgba(124, 65, 243, 0.55), transparent 58%),
+        radial-gradient(900px 600px at 88% 40%, rgba(255, 110, 255, 0.35), transparent 55%),
+        #131214 !important;
+    color: #fff;
+    overflow: hidden; /* Ensures nothing spills out */
+    min-height: 800px;
+    padding: 80px var(--site-padding-desktop, 250px) 100px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+.role-section-wrapper h1 {
+    text-align: left !important;
+}
+
+/* --- Header Typography --- */
+.role-typography {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1;
+}
+
+.role-open {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 7vw, 150px);
+    margin: 0;
+    position: absolute;
+    top: -0.6em;
+    left: 0;
+    z-index: 10;
+    color: #fff;
+    letter-spacing: -2px; 
+}
+
+.role-main {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-weight: 700;
+    font-size: clamp(3.5rem, 7vw, 150px);
+    margin: 0;
+    padding-left: 3ch; /* Pushes CULTURE to the right to make room for OUR */
+    padding-top: 0.3ch;
+    letter-spacing: -3px; /* Tight tracking like the image */
+    color: #fff;
+    position: relative;
+    z-index: 5;
+}
+
+/* --- The Arrow --- */
+.role-arrow svg {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin-left: auto; 
+    margin-top: -180px; /* Pulls arrow up to overlap */
+}
+
+
+/* --- Accordion (Glassmorphism) --- */
+.role-accordion {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 60px; /* Spacing from header */
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.role-card[open] {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Summary (The clickable header) --- */
+.role-summary {
+    list-style: none; /* Hide default triangle */
+    cursor: pointer;
+    padding: 25px 30px;
+    display: block;
+    border-radius: inherit;
+    overflow: hidden;
+}
+.role-summary::-webkit-details-marker {
+    display: none;
+}
+.role-card[open] > .role-summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.role-summary-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-title {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.role-tag {
+    background: #ff5eff;
+    color: #000;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.role-meta {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.role-meta span {
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.role-meta .icon-loc,
+.role-meta .icon-time {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    flex: 0 0 20px;
+    font-style: normal;
+}
+.role-meta .icon-loc {
+    background-image: url("./assets/icon-1.png");
+}
+.role-meta .icon-time {
+    background-image: url("./assets/icon-2.png");
+}
+
+/* --- The Circle Arrow Button --- */
+.role-toggle-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.role-toggle-icon::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    transform: rotate(45deg);
+}
+/* Rotate icon when open */
+.role-card[open] .role-toggle-icon {
+    transform: rotate(180deg);
+    background: rgba(255,255,255,0.1);
+}
+
+/* --- Expanded Content --- */
+.role-details-body {
+    padding: 0 30px 40px 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 10px;
+    padding-top: 30px;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+}
+
+.role-details-body h4 {
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.role-details-body p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 25px;
+}
+
+/* Lists styling */
+.role-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.role-check-list li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: rgba(255,255,255,0.8);
+    font-size: 20px;
+    font-weight: 400;
+}
+.role-check-list li::before {
+    content: "✓";
+    color: #c586ff;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.role-dot-list li {
+    color: rgba(255,255,255,0.8);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+/* Salary & Button */
+.role-salary {
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0;
+}
+.role-equity {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.role-apply-btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+.role-apply-btn:hover {
+    transform: translateY(-2px);
+    background: #f0f0f0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1745px) {
+    .role-section-wrapper.wp-block-group {
+        padding: 80px 100px 100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .role-section-wrapper.wp-block-group {
+        padding: 80px 80px 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .role-section-wrapper.wp-block-group {
+        padding: 80px var(--site-padding-mobile, 24px) 100px;
+    }
+
+    .role-header-row {
+        flex-direction: row; /* Keep arrow next to text on tablet */
+    }
+
+    .role-open {
+        position: relative;
+        top: 0;
+        margin-bottom: -10px;
+        font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+    .role-main {
+        padding-left: 0;
+        padding-top: 0;
+        font-size: clamp(3.5rem, 10vw, 5rem);
+    }
+
+    .role-arrow svg {
+        width: 80px;
+        margin-top: 0;
+    }
+
+    .role-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .role-summary {
+        padding: 20px 18px;
+    }
+
+    .role-summary-content {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .role-title-group {
+        min-width: 0;
+    }
+
+    .role-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .role-meta span {
+        margin-right: 0;
+    }
+
+    .role-toggle-icon {
+        margin-top: 6px;
+    }
+}

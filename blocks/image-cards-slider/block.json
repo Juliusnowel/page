@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "vite-child/image-cards-slider",
+    "title": "Image Cards Slider",
+    "category": "design",
+    "icon": "images-alt2",
+    "description": "Heading + text with a horizontal sliding row of image cards (array-driven).",
+    "keywords": ["slider", "carousel", "images", "cards", "services"],
+    "textdomain": "vite-child",
+    "supports": {
+      "align": ["wide", "full"],
+      "anchor": true,
+      "spacing": { "margin": true, "padding": true },
+      "html": false
+    },
+    "attributes": {
+      "title": { "type": "string", "default": "" },
+      "text": { "type": "string", "default": "" },
+      "cards": {
+        "type": "array",
+        "default": []
+      }
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "example": {
+      "attributes": {
+        "title": "LOREM IPSUM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "cards": [
+          { "url": "https://picsum.photos/600/600?random=1", "alt": "Card 1" },
+          { "url": "https://picsum.photos/600/600?random=2", "alt": "Card 2" },
+          { "url": "https://picsum.photos/600/600?random=3", "alt": "Card 3" },
+          { "url": "https://picsum.photos/600/600?random=4", "alt": "Card 4" }
+        ]
+      }
+    }
+  }
+  

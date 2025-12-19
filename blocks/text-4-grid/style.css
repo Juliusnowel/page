@@ -1,0 +1,181 @@
+.c-why-vite {
+	padding: 4rem 0rem;
+	background:
+		radial-gradient(1200px 700px at 15% 55%, rgba(124, 65, 243, 0.55), transparent 58%),
+		radial-gradient(900px 600px at 88% 40%, rgba(255, 110, 255, 0.35), transparent 55%),
+		#131214;
+	color: #f2f2f2;
+	--why-vite-inner-padding-x: 150px;
+}
+.c-why-vite h1 {
+	text-align: left !important;
+}
+.c-why-vite{
+	margin-block-start: 0px !important;
+}
+.c-why-vite__inner {
+	min-height: 750px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: minmax(320px, 1fr) minmax(420px, 1fr);
+	column-gap: clamp(32px, 5vw, 96px);
+	row-gap: clamp(24px, 4vw, 56px);
+	align-items: center;
+    min-height: 800px;
+    padding: 80px var(--site-padding-desktop, 250px) 100px;
+}
+.card_1{
+	margin-top:-70px;
+	margin-bottom:70px;
+}
+.card_3{
+	margin-top:-70px;
+	margin-bottom:70px;
+}
+.c-why-vite__intro {
+	max-width: 700px;
+}
+
+.c-why-vite__eyebrow {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-weight: 400; /* OTF usually behaves best at 400 */
+    font-size: clamp(48px, 8vw, 130px);
+    line-height: 0.84;
+    letter-spacing: 0.02em;
+    margin: 0 auto;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+}
+
+.c-why-vite__title {
+	font-size: clamp(18px, 1.2vw, 20px);
+	line-height: 1.6;
+	margin: 0 0 0.75rem;
+	font-weight: 400;
+	color: #e5e5e7;
+}
+
+.c-why-vite__copy {
+	font-size: clamp(16px, 1.2vw, 20px);
+	margin: 0 0 1.2rem;
+	color: #cfcfd4;
+}
+
+.c-why-vite__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: clamp(18px, 1.4vw, 24px);
+	color: #caa6ff;
+	text-decoration: none;
+	font-weight: 600;
+	border-bottom: 2px solid #caa6ff;
+	padding-bottom: 0.1rem;
+	transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.c-why-vite__link:hover,
+.c-why-vite__link:focus {
+	color: #e3c8ff;
+	border-color: #e3c8ff;
+	transform: translateY(-1px);
+}
+
+.c-why-vite__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(clamp(180px, 22vw, 260px), 1fr));
+	gap: clamp(16px, 1.6vw, 22px);
+}
+
+.c-why-vite__card {
+	background: #d9d9db;
+	color: #111111;
+	border-radius: 18px;
+	padding: 1.35rem 1.4rem;
+	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+	min-height: 250px;
+}
+
+.c-why-vite__icon {
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+	background: #7b7b7d;
+}
+
+.c-why-vite__card-title {
+    font-family: var(--wp--preset--font-family--code-pro);
+	font-size: clamp(18px, 1.4vw, 24px);
+	margin: 0;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-weight: 400;
+	
+}
+
+.c-why-vite__card-copy {
+	margin: 0;
+	color: #2d2d2d;
+	line-height: 1.48;
+	font-size: clamp(16px, 1.2vw, 20px);
+	font-weight: 400;
+}
+
+@media (max-width: 1745px) {
+	.c-why-vite {
+		--why-vite-inner-padding-x: 100px;
+	}
+	.c-why-vite__inner {
+		padding-left: var(--why-vite-inner-padding-x);
+		padding-right: var(--why-vite-inner-padding-x);
+	}
+}
+
+@media (max-width: 1400px) and (min-width: 1200px) {
+	.c-why-vite {
+		/* -20% from the 1745px padding (100px -> 80px) */
+		--why-vite-inner-padding-x: 80px;
+	}
+}
+
+@media (max-width: 1199px) and (min-width: 981px) {
+	.c-why-vite {
+		/* -20% from the 1400–1200 padding (80px -> 64px) */
+		--why-vite-inner-padding-x: 64px;
+	}
+}
+
+@media (max-width: 980px) {
+	.c-why-vite__inner {
+		min-height: 0;
+		grid-template-columns: 1fr;
+		align-items: start;
+	}
+
+	.card_1,
+	.card_3 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.c-why-vite {
+		--why-vite-inner-padding-x: 30px;
+	}
+}
+
+@media (max-width: 736px) {
+	.c-why-vite__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.c-why-vite {
+		padding: 3rem 1rem;
+		--why-vite-inner-padding-x: 0px;
+	}
+}

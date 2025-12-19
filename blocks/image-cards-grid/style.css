@@ -1,0 +1,149 @@
+/* ===== Image Cards Grid (vite-child/image-cards-grid) ===== */
+
+.wp-block-vite-child-image-cards-grid.img-cards-grid{
+  position: relative;
+  overflow: hidden;
+  color: #e9e9f5;
+
+  /* your padding system */
+  --site-padding-desktop: 250px;
+  --site-padding-mobile: 24px;
+
+  /* grid tokens */
+  --grid-gap: clamp(16px, 2.6vw, 34px);
+
+  /* responsive gradient spot sizes + positions */
+  --spot1-w: clamp(520px, 85vw, 1200px);
+  --spot1-h: clamp(340px, 55vw, 700px);
+  --spot1-x: 95%;
+  --spot1-y: 50%;
+
+  padding: 120px var(--site-padding-desktop) 120px;
+
+  background:
+    radial-gradient(var(--spot1-w) var(--spot1-h) at var(--spot1-x) var(--spot1-y), rgba(124, 65, 243, 0.55), transparent 58%),
+    #131214;
+}
+
+/* subtle sheen overlay */
+.wp-block-vite-child-image-cards-grid.img-cards-grid::before{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background: radial-gradient(900px 620px at 50% 20%, #131214, transparent 65%);
+  opacity: 0.25;
+}
+
+/* ===== Top text ===== */
+.img-cards-grid__top{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+}
+
+.img-cards-grid__title{
+  margin: 0 0 10px;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--wp--preset--font-size--h2, clamp(24px, 2.6vw, 32px));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.img-cards-grid__text{
+  margin: 0 auto;
+  max-width: 620px;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--wp--preset--font-size--p, clamp(16px, 1.6vw, 20px));
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+/* ===== Grid ===== */
+.img-cards-grid__grid{
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  align-items: stretch;
+}
+
+/* Cards */
+.img-cards-grid__card{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: clamp(28px, 3vw, 44px);
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.img-cards-grid__img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Step-down padding (desktop) ===== */
+@media (max-width: 1599.98px){
+  .wp-block-vite-child-image-cards-grid.img-cards-grid{ --site-padding-desktop: 180px; }
+}
+@media (max-width: 1399.98px){
+  .wp-block-vite-child-image-cards-grid.img-cards-grid{ --site-padding-desktop: 120px; }
+}
+@media (max-width: 1199.98px){
+  .wp-block-vite-child-image-cards-grid.img-cards-grid{ --site-padding-desktop: 70px; }
+}
+
+/* =========================================================
+   KEY FIX:
+   <= 999.98px keep it 2 columns AND switch to mobile padding
+   so you don't get huge side space on widths like 758px
+   ========================================================= */
+@media (max-width: 999.98px){
+  .wp-block-vite-child-image-cards-grid.img-cards-grid{
+    padding: 90px var(--site-padding-mobile) 100px;
+
+    /* push gradient a bit DOWN on smaller screens */
+    --spot1-y: 68%;
+  }
+
+  .img-cards-grid__grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* if there are exactly 3 cards, center the last one at same width as a column */
+  .wp-block-vite-child-image-cards-grid.img-cards-grid.is-count-3
+  .img-cards-grid__card:nth-child(3){
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, calc((100% - var(--grid-gap)) / 2));
+  }
+}
+
+/* ===== True mobile: 1 column, centered ===== */
+@media (max-width: 560px){
+  .img-cards-grid__grid{
+    grid-template-columns: 1fr;
+  }
+
+  .img-cards-grid__card{
+    justify-self: center;
+    width: min(420px, 100%);
+  }
+}
+
+/* “font shrink + weight shrink” */
+@media (max-width: 768px){
+  .img-cards-grid__title{ font-weight: 400; }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vite-child/our-approach",
+  "version": "1.0.0",
+  "title": "Our Approach",
+  "category": "layout",
+  "icon": "list-view",
+  "description": "Approach section with 4 hoverable steps.",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "OUR APPROACH"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "textdomain": "vite-child",
+  "render": "file:./render.php",
+  "style": "file:./style.css"
+}

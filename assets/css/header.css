@@ -1,0 +1,502 @@
+/* =========================
+   Header (Responsive + Clean)
+========================= */
+
+  /* --- Remove mobile tap highlight / weird box stroke --- */
+  .site-header a,
+  .site-header button{
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Touch devices: don't keep focus-visible outline/underline after tapping */
+  @media (hover: none) and (pointer: coarse){
+    .site-header .nav-link:focus-visible,
+    .site-header .btn:focus-visible,
+    .site-header .navbar-toggler:focus-visible{
+      outline: none !important;
+    }
+
+    /* Prevent "stuck underline" caused by focus-visible on mobile */
+    .site-header .nav-link:focus-visible::after{
+      transform: scaleX(0) !important;
+    }
+  }
+
+
+/* Layout */
+.site-header{
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  /* Desktop target padding */
+  padding-left: var(--site-padding-desktop, 250px);
+  padding-right: var(--site-padding-desktop, 250px);
+
+  /* Responsive tokens for header content (shrink before hamburger) */
+  --pill-pad-x: clamp(16px, 2.2vw, 32px);
+  --nav-gap: clamp(0.35rem, 0.9vw, 1rem);
+  --nav-fs: clamp(0.78rem, 0.25vw + 0.72rem, 0.90rem);
+  --brand-fs: clamp(1.0rem, 0.35vw + 0.90rem, 1.20rem);
+  --cta-pad-x: clamp(12px, 1.6vw, 18px);
+  --cta-pad-y: clamp(8px, 1.0vw, 12px);
+}
+
+/* Avoid double-padding from Bootstrap container */
+.site-header .header-inner{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  gap: clamp(10px, 1.2vw, 22px);
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Force correct desktop order */
+.site-header .navbar-brand{ order: 1; flex: 0 0 auto; }
+.site-header .navbar-collapse{ order: 2; flex: 1 1 auto; min-width: 0; }
+.site-header .header-actions{ order: 3; flex: 0 0 auto; }
+
+/* Bootstrap navbar reset */
+.navbar{ padding: 0; }
+
+/* -------------------------
+   Custom expand breakpoint:
+   Desktop >= 1000px
+------------------------- */
+@media (min-width: 1000px){
+  .navbar-expand-custom .navbar-collapse{
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: center;
+  }
+
+  .navbar-expand-custom .header-actions .navbar-toggler{
+    display: none !important;
+  }
+
+  .navbar-expand-custom .navbar-nav{
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar-expand-custom .navbar-nav .dropdown-menu{
+    position: absolute;
+  }
+}
+
+/* Below 1000px: hamburger mode */
+@media (max-width: 999.98px){
+  .site-header .header-inner{ flex-wrap: wrap; }
+
+  .site-header .navbar-collapse{
+    order: 4;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .navbar-expand-custom .header-actions .navbar-toggler{
+    display: grid !important;
+  }
+}
+
+/* -------------------------
+   Step-down header padding
+------------------------- */
+@media (max-width: 1599.98px){
+  .site-header{ padding-left: 180px; padding-right: 180px; }
+}
+@media (max-width: 1399.98px){
+  .site-header{ padding-left: 120px; padding-right: 120px; }
+}
+@media (max-width: 1199.98px){
+  .site-header{ padding-left: 70px; padding-right: 70px; }
+  .site-header{
+    --pill-pad-x: clamp(14px, 1.6vw, 22px);
+    --nav-gap: clamp(0.25rem, 0.6vw, 0.7rem);
+    --cta-pad-x: clamp(10px, 1.2vw, 14px);
+    --cta-pad-y: clamp(8px, 0.8vw, 10px);
+  }
+}
+
+/* Hamburger zone padding */
+@media (max-width: 999.98px){
+  .site-header{
+    padding-left: var(--site-padding-mobile, 24px);
+    padding-right: var(--site-padding-mobile, 24px);
+  }
+}
+
+/* -------------------------
+   Center pill menu
+------------------------- */
+.floating-header-pill{
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  padding: 5px var(--pill-pad-x);
+
+  background: rgba(30, 36, 54, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    1.86px 1.73px 6px rgba(255, 255, 255, 0.15) inset,
+    2.79px 2.6px 12px rgba(255, 255, 255, 0.15) inset,
+    -1.86px -1.73px 12px -8px rgba(0, 0, 0, 0.15),
+    -11.15px -10.39px 48px -12px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+/* Logo */
+.logo-circle{
+  width: clamp(22px, 1.8vw, 28px);
+  height: clamp(22px, 1.8vw, 28px);
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.navbar-brand{
+  font-family: var(--wp--preset--font-family--climate-crisis);
+  font-size: var(--brand-fs);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* -------------------------
+   Nav Links (underline + active)
+------------------------- */
+.navbar-nav{ flex-wrap: nowrap; }
+
+.navbar-nav .nav-link{
+  margin: 0 var(--nav-gap);
+  position: relative;
+
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-weight: 600;
+  font-size: var(--nav-fs);
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  color: #fff !important;
+  opacity: 0.85;
+
+  transition: opacity 0.25s ease, text-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+/* Hover + active glow */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"]{
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(255,255,255,0.35);
+}
+
+/* Underline */
+.navbar-nav .nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+
+  background: rgba(255,255,255,0.85);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+/* Show underline on hover + active */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus-visible::after,
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link[aria-current="page"]::after{
+  transform: scaleX(1);
+}
+
+/* (Optional) WordPress active classes support */
+.navbar-nav .current-menu-item > .nav-link::after,
+.navbar-nav .current_page_item > .nav-link::after{
+  transform: scaleX(1);
+}
+.navbar-nav .current-menu-item > .nav-link,
+.navbar-nav .current_page_item > .nav-link{
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(255,255,255,0.35);
+}
+
+
+/* -------------------------
+   Desktop dropdown menu
+------------------------- */
+.services-dropdown{
+  margin-top: 12px;
+  padding: 10px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgb(18, 18, 26);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.services-dropdown .dropdown-item{
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-weight: 600;
+  font-size: clamp(12px, 0.35vw + 11px, 14px);
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* -------------------------
+   Header Actions
+------------------------- */
+.header-actions{
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 14px);
+  white-space: nowrap;
+}
+
+.header-actions .btn{
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--nav-fs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding: var(--cta-pad-y) var(--cta-pad-x) !important;
+}
+
+.header-actions .navbar-toggler{
+  border: 0;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  place-items: center;
+
+  background: rgba(30, 36, 54, 0.35);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.header-actions .navbar-toggler i{ font-size: 18px; }
+
+.btn-light{
+  background: #fff;
+  color: #000;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
+}
+
+/* Career underline on hover only */
+.btn-career{
+  background: transparent;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden; /* keeps underline clean inside pill */
+}
+
+.btn-career::after{
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 10px;
+  height: 2px;
+  background: rgba(255,255,255,0.85);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.btn-career:hover::after,
+.btn-career:focus-visible::after{
+  transform: scaleX(1);
+}
+/* -------------------------
+   Mobile Services Panel (grid)
+------------------------- */
+
+/* IMPORTANT: stretch so divider gets height */
+.mobile-menu-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch; /* <- fixes divider height */
+}
+
+/* Divider: stretch to full height */
+.mobile-menu-divider{
+  display: none;
+  width: 1px;
+  background: rgba(255,255,255,0.14);
+  border-radius: 99px;
+  align-self: stretch; /* <- fixes divider height */
+}
+
+/* Remove the extra gap that made it too far */
+.mobile-services{
+  padding-left: 0; /* <- was 16px, too much */
+}
+
+/* Right panel items */
+.services-list .dropdown-item{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-weight: 600;
+  font-size: clamp(12px, 0.35vw + 11px, 14px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Desktop: hide mobile services UI */
+@media (min-width: 1000px){
+  .nav-services__mobile{ display: none !important; }
+  .mobile-menu-divider{ display: none !important; }
+  .mobile-services{ display: none !important; }
+}
+
+/* -------------------------
+   Hamburger mode
+------------------------- */
+@media (max-width: 999.98px){
+  .floating-header-pill{
+    width: 100%;
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .navbar-nav{
+    flex-direction: column;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link{
+    width: 100%;
+    margin: 0;
+    padding: 12px 8px;
+    text-align: left;
+  }
+
+  /* Hide desktop dropdown trigger; show mobile trigger */
+  .nav-services__desktop{ display: none !important; }
+
+  .nav-services__mobile{
+    display: inline-flex !important;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 8px;
+    background: transparent;
+    border: 0;
+
+    /* make it look like a nav-link */
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-weight: 600;
+    font-size: var(--nav-fs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  /* Put the icon at the far right */
+  .nav-services__mobile .services-dd-icon{
+    margin-left: auto;
+    opacity: 0.85;
+    transition: transform 180ms ease, opacity 180ms ease;
+    transform: translateY(1px) rotate(180deg); /* chevron-down -> up */
+  }
+
+  .nav-services__mobile[aria-expanded="true"] .services-dd-icon{
+    transform: translateY(1px) rotate(-90deg); /* chevron-down -> right */
+    opacity: 1;
+  }
+
+  /* Remove underline animation in hamburger */
+  /* .navbar-nav .nav-link::after{ display: none; } */
+
+  /* Split into 2 columns when services open (and keep it tight) */
+  .mobile-menu-grid.is-services-open{
+    grid-template-columns: 0.9fr 1px 1.1fr; /* <- pulls right panel closer */
+    column-gap: 12px;
+  }
+
+  .mobile-menu-grid.is-services-open .mobile-menu-divider{
+    display: block;
+  }
+
+  /* Give each side a little breathing room without “too far” */
+  .mobile-menu-grid.is-services-open .nav-main{ padding-right: 8px; }
+  .mobile-menu-grid.is-services-open .mobile-services{ padding-left: 8px; }
+
+  /* Safety: hide desktop dropdown in hamburger */
+  .services-dropdown{ display: none !important; }
+
+  /* --- Mobile: Services underline ONLY while open --- */
+  .nav-services__mobile{
+    position: relative;
+  }
+
+  /* Disable the normal nav-link underline for the Services mobile button */
+  .navbar-nav .nav-services__mobile::after{
+    display: none !important;
+  }
+
+  /* Create a custom underline that only appears when expanded */
+  .nav-services__mobile::before{
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 6px;
+    height: 2px;
+    background: rgba(255,255,255,0.85);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .nav-services__mobile[aria-expanded="true"]::before{
+    transform: scaleX(1);
+  }
+
+}
+
+/* Hover dropdown only when NOT hamburger */
+@media (min-width: 1000px){
+  .navbar-nav .dropdown:hover > .dropdown-menu,
+  .navbar-nav .dropdown:focus-within > .dropdown-menu{
+    display: block;
+  }
+
+  .navbar-nav .dropdown:hover .services-dd-icon,
+  .navbar-nav .dropdown:focus-within .services-dd-icon{
+    transform: translateY(1px) rotate(180deg);
+    opacity: 1;
+  }
+
+  .services-dropdown{ margin-top: 0; }
+}

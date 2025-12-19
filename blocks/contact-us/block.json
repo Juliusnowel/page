@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vite-child/contact-us",
+  "version": "1.0.0",
+  "title": "Contact Us (CF7)",
+  "category": "layout",
+  "icon": "email",
+  "description": "Contact section using Contact Form 7 shortcode, with right-side info cards.",
+  "attributes": {
+    "title": { "type": "string", "default": "cOntAct uS" },
+    "badgeText": { "type": "string", "default": "WE ARE RESPONDING WITHIN 24H" },
+    "subtitle": {
+      "type": "string",
+      "default": "Have a project in mind? We'd love to hear about it.\nLet's discuss how we can help you achieve your digital goals."
+    },
+    "cf7Shortcode": { "type": "string", "default": "[contact-form-7 id=\"123\" title=\"Contact form 1\"]" },
+
+    "emailLabel": { "type": "string", "default": "EMAIL US" },
+    "emailText": { "type": "string", "default": "Our friendly team is here to help." },
+    "emailValue": { "type": "string", "default": "HELLO@VITESEO.COM" },
+
+    "officeLabel": { "type": "string", "default": "OFFICE" },
+    "officeText": { "type": "string", "default": "Come say hello at our office HQ." },
+    "officeValue": { "type": "string", "default": "123 INNOVATION DR, MAKATI CITY,\nPHILIPPINES 1200" },
+
+    "phoneLabel": { "type": "string", "default": "PHONE" },
+    "phoneText": { "type": "string", "default": "Mon–Fri from 8am to 5pm." },
+    "phoneValue": { "type": "string", "default": "+63 912 345 6789" }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"]
+  },
+  "textdomain": "vite-child",
+  "render": "file:./render.php",
+  "style": "file:./style.css"
+}

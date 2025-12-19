@@ -1,0 +1,153 @@
+/**
+ * Hero Banner Styles
+ */
+
+ .hero-banner-block{
+  position: relative;
+
+  /* ✅ responsive spot sizes (shrink with viewport, capped at your desktop look) */
+  --spot1-w: clamp(420px, 85vw, 1200px);
+  --spot1-h: clamp(280px, 55vw, 700px);
+
+  --spot2-w: clamp(360px, 75vw, 900px);
+  --spot2-h: clamp(260px, 50vw, 600px);
+
+  --spot3-w: clamp(280px, 55vw, 700px);
+  --spot3-h: clamp(200px, 40vw, 500px);
+
+  /* ✅ base bg */
+  background:
+    radial-gradient(var(--spot2-w) var(--spot2-h) at 88% 40%, rgba(255, 110, 255, 0.35), transparent 45%),
+    radial-gradient(var(--spot3-w) var(--spot3-h) at 35% 20%, rgba(60, 160, 255, 0.12), transparent 60%),
+    #131214;
+
+  padding: 180px 0 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+  
+  /* container sizing (replaces inline styles) */
+  .hero-banner__container {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .hero-banner__lead {
+    max-width: 600px;
+  }
+  
+  /* Liquid background wrapper */
+  .hero-liquid-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    clip-path: inset(0);
+  }
+  
+  .blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(clamp(70px, 10vw, 100px));
+    opacity: 0.65;
+    will-change: transform, border-radius;
+    transition:
+      transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+      border-radius 0.3s ease-out;
+  }
+  
+/* ✅ blob sizes + offsets shrink with viewport */
+.blob-left{
+  top: clamp(-220px, -16vw, -140px);
+  left: clamp(-200px, -14vw, -120px);
+  width: clamp(420px, 55vw, 750px);
+  height: clamp(420px, 55vw, 750px);
+  background: rgba(124, 65, 243, 0.596);
+}
+
+.blob-right{
+  top: clamp(-160px, -10vw, -70px);
+  right: clamp(-420px, -26vw, -180px);
+  width: clamp(460px, 65vw, 850px);
+  height: clamp(460px, 65vw, 850px);
+  background: rgba(255, 110, 255, 0.418);
+}
+  
+  /* Typography */
+  .hero-banner-block h1 {
+    font-family: var(--wp--preset--font-family--dirtyline); /* Dirtyline mapped here */
+    font-weight: 400; /* OTF usually behaves best at 400 */
+    font-size: clamp(64px, 9vw, 150px);
+    line-height: 0.84;
+    letter-spacing: 0.02em;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .hero-banner-block h1 span {
+    font-weight: 400;
+  }
+  
+  .hero-banner-block p,
+  .hero-banner-block p.lead {
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-size: 20px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 640px;
+  }
+  
+  .hero-banner-block .badge {
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+    padding: 10px 18px;
+  
+    background: rgba(30, 36, 54, 0.4);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  
+    box-shadow:
+      1.86px 1.73px 6px 0px rgba(255, 255, 255, 0.15) inset,
+      2.79px 2.6px 12px 0px rgba(255, 255, 255, 0.15) inset,
+      -1.86px -1.73px 12px -8px rgba(0, 0, 0, 0.15),
+      -11.15px -10.39px 48px -12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hero-banner-block .btn {
+    font-family: var(--wp--preset--font-family--code-pro);
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 400;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px){
+    .hero-banner-block{
+      padding: 140px 0 80px;
+      min-height: auto;
+    }
+  
+    .blob{
+      opacity: 0.55;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .blob {
+      transition: none !important;
+    }
+  }
+  

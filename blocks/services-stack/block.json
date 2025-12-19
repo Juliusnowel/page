@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "vite-child/services-stack",
+    "version": "1.0.0",
+    "title": "Interactive Services Stack",
+    "category": "layout",
+    "icon": "layers",
+    "description": "Sticky parallax card stack for services with interactive highlight on scroll.",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "OUR SERVICE"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "full",
+            "wide"
+        ]
+    },
+    "textdomain": "vite-child",
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}
+

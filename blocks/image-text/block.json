@@ -1,0 +1,43 @@
+{
+    "apiVersion": 2,
+    "name": "vite-child/image-text",
+    "title": "Image + Text",
+    "category": "design",
+    "icon": "format-image",
+    "description": "Two-column image + text with left/right text position (desktop) and stacked layout on mobile.",
+    "keywords": ["image", "text", "two-column", "responsive"],
+    "supports": {
+      "align": ["wide", "full"],
+      "anchor": true,
+      "spacing": { "margin": true, "padding": true },
+      "color": { "text": false, "background": false, "link": false }
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+      "textPos": { "type": "string", "default": "right" },
+  
+      "title": { "type": "string", "default": "" },
+      "text": { "type": "string", "default": "" },
+  
+      "imageUrl": { "type": "string", "default": "" },
+      "imageAlt": { "type": "string", "default": "" },
+  
+      "mediaUrl": { "type": "string", "default": "" },
+      "mediaAlt": { "type": "string", "default": "" },
+  
+      "imageRadius": { "type": "number", "default": 44 }
+    },
+    "example": {
+      "attributes": {
+        "align": "wide",
+        "textPos": "right",
+        "title": "WHO WE ARE",
+        "text": "We are the architects of digital growth. Merging data-driven strategy with creative innovation to build ecosystems that thrive.",
+        "imageUrl": "https://picsum.photos/960/960?random=22",
+        "imageAlt": "Team"
+      }
+    },
+    "textdomain": "vite-child"
+  }
+  

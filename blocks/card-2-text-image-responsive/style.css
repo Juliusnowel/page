@@ -1,0 +1,188 @@
+/* ===== Card: Image + Text (vite-child/card-2-text-image-responsive) ===== */
+
+.wp-block-vite-child-card-2-text-image-responsive.card-2ti{
+  position: relative;
+  overflow: hidden;
+  color: #e9e9f5;
+
+  /* match your theme padding system */
+  --site-padding-desktop: 250px;
+  --site-padding-mobile: 24px;
+
+  /* image target size */
+  --img-w: 735px;
+  --img-h: 623px;
+
+  padding: 120px var(--site-padding-desktop) 120px;
+
+  /* Typography tokens from theme.json presets (+ safe fallbacks) */
+  --ti-h2: var(--wp--preset--font-size--h2, clamp(24px, 2.6vw, 32px));
+  --ti-p:  var(--wp--preset--font-size--p,  clamp(16px, 1.6vw, 20px));
+  --ti-label: var(--wp--preset--font-size--label, clamp(13px, 1.2vw, 16px));
+
+  /* mimic contact-us-block background */
+  background:
+    radial-gradient(900px 600px at 5% 50%, rgba(255, 110, 255, 0.35), transparent 58%),
+    #131214;
+}
+
+/* subtle sheen overlay */
+.wp-block-vite-child-card-2-text-image-responsive.card-2ti::before{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background: radial-gradient(900px 620px at 50% 20%, #131214, transparent 65%);
+  opacity: 0.22;
+}
+
+/* step-down padding (match your header logic) */
+@media (max-width: 1599.98px){
+  .wp-block-vite-child-card-2-text-image-responsive.card-2ti{ --site-padding-desktop: 180px; }
+}
+@media (max-width: 1399.98px){
+  .wp-block-vite-child-card-2-text-image-responsive.card-2ti{ --site-padding-desktop: 120px; }
+}
+@media (max-width: 1199.98px){
+  .wp-block-vite-child-card-2-text-image-responsive.card-2ti{ --site-padding-desktop: 70px; }
+}
+@media (max-width: 999.98px){
+  .wp-block-vite-child-card-2-text-image-responsive.card-2ti{
+    padding: 80px var(--site-padding-mobile) 90px;
+
+    /* push the gradient a bit DOWN when it stacks */
+    background:
+      radial-gradient(900px 600px at 50% 65%, rgba(255, 110, 255, 0.35), transparent 65%),
+      #131214;
+  }
+}
+
+/* ===== layout ===== */
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__inner{
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* ✅ equal width */
+  gap: clamp(24px, 4vw, 80px);
+  align-items: center;
+}
+
+/* swap by imagePosition */
+.wp-block-vite-child-card-2-text-image-responsive.is-img-left  .card-2ti__media{ order: 1; }
+.wp-block-vite-child-card-2-text-image-responsive.is-img-left  .card-2ti__content{ order: 2; }
+
+.wp-block-vite-child-card-2-text-image-responsive.is-img-right .card-2ti__content{ order: 1; }
+.wp-block-vite-child-card-2-text-image-responsive.is-img-right .card-2ti__media{ order: 2; }
+
+/* ===== content ===== */
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__content{
+  width: 100%;
+  min-width: 0;
+}
+
+/* ===== typography (fluid + shrinks on smaller screens) ===== */
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__headline{
+  margin: 0 0 12px;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: clamp(28px, 3.4vw, 64px); /* <-- fluid shrink */
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__copy{
+  margin: 0;
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--ti-p);
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  max-width: 48ch;
+}
+
+/* optional: if you use <b>/<strong> in copy */
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__copy strong,
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__copy b{
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ===== media (735x623, responsive shrink) ===== */
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__media{
+  width: 100%;
+  min-width: 0;
+  justify-self: stretch;              /* fill its 50% column */
+  display: flex;
+  justify-content: flex-start;        /* default */
+}
+.wp-block-vite-child-card-2-text-image-responsive.is-img-right .card-2ti__media{
+  justify-content: flex-end;          /* image hugs right when on right */
+}
+
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__figure{
+  margin: 0;
+  width: 100%;
+  max-width: var(--img-w);            /* ✅ 735px cap */
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow: 0 18px 36px rgba(0,0,0,.30), 0 8px 18px rgba(0,0,0,.18);
+}
+
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__img{
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 735 / 623;
+  object-fit: cover;
+}
+
+.wp-block-vite-child-card-2-text-image-responsive .card-2ti__placeholder{
+  width: min(100%, var(--img-w));
+  aspect-ratio: 735 / 623;
+  border-radius: 44px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* ===== mobile: text on top, image bottom + weight shrink ===== */
+@media (max-width: 999.98px){
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__inner{
+    grid-template-columns: 1fr;
+    justify-items: center; /* ✅ centers items in the grid */
+    text-align: center;    /* ✅ centers text */
+  }
+
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__content{
+    order: 1 !important;
+    width: min(680px, 100%); /* keeps it nicely centered, not too wide */
+  }
+
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__media{
+    order: 2 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* ✅ center image */
+  }
+
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__figure{
+    width: 100%;
+    max-width: min(var(--img-w), 100%); /* still respects 735px max */
+  }
+
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__copy{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px){
+  /* “weight shrinks too” like your contact section */
+  .wp-block-vite-child-card-2-text-image-responsive .card-2ti__headline{
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+}

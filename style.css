@@ -1,0 +1,108 @@
+/*
+Theme Name: vite-child
+Theme URI:
+Author:
+Author URI:
+Description:
+Requires at least: 6.9
+Tested up to: 6.9
+Requires PHP: 5.7
+Version:
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: twentytwentyfive
+Text Domain: vite-child
+Tags:
+*/
+
+/* =========================================================
+   GLOBAL RESET — BLOCK THEME SAFE
+   ========================================================= */
+
+/* Remove browser + WP default spacing */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Kill Twenty Twenty-Five auto spacing */
+:root {
+    --wp--style--block-gap: 0px !important;
+
+    /* Layout padding system */
+    --site-padding-desktop: 250px;
+    --site-padding-tablet: 120px;
+    --site-padding-mobile: 24px;
+}
+
+/* Remove margin from template parts */
+.wp-site-blocks > .wp-block-template-part {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove auto margins from all blocks */
+.wp-site-blocks > * {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}
+
+/* Header template-part fix */
+.wp-site-blocks > header {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Prevent gap after header */
+.wp-site-blocks > header + * {
+    margin-top: 0 !important;
+}
+
+/* First block safety */
+.wp-site-blocks > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* =========================================================
+   BLOCK + GROUP CONTROL
+   ========================================================= */
+
+.wp-block-group {
+    margin: 0 !important;
+    padding: 0;
+    gap: 0 !important;
+}
+
+/* =========================================================
+   SITE CONTAINER (USED BY HEADER & SECTIONS)
+   ========================================================= */
+
+.site-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--site-padding-desktop);
+    padding-right: var(--site-padding-desktop);
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+@media (max-width: 1400px) {
+    .site-container {
+        padding-left: var(--site-padding-tablet);
+        padding-right: var(--site-padding-tablet);
+    }
+}
+
+@media (max-width: 768px) {
+    .site-container {
+        padding-left: var(--site-padding-mobile);
+        padding-right: var(--site-padding-mobile);
+    }
+}

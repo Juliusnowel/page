@@ -1,0 +1,109 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-custom w-100">
+    <div class="container-fluid header-inner d-flex align-items-center justify-content-between">
+
+      <!-- Left: Logo -->
+      <a class="navbar-brand d-flex align-items-center text-white" href="#">
+        <span class="logo-circle me-2"></span>
+        <span class="fw-bold" style="font-family: var(--wp--preset--font-family--code-pro);">VITE SEO</span>
+      </a>
+
+      <!-- Right: CAREER + CONTACT + HAMBURGER -->
+      <div class="header-actions">
+        <a href="/career" class="btn btn-career rounded-pill fw-bold">CAREER</a>
+        <a href="/contact" class="btn btn-light rounded-pill fw-bold">CONTACT US</a>
+
+        <button class="navbar-toggler text-white" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Center: Menu -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+        <div class="floating-header-pill">
+
+          <!-- Mobile layout wrapper -->
+          <div class="mobile-menu-grid" id="mobileMenuGrid">
+
+            <!-- LEFT COLUMN: main links -->
+            <ul class="navbar-nav nav-main mb-0 align-items-center">
+              <li class="nav-item"><a class="nav-link text-white active" href="/">HOME</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="/growth-bundle">GROWTH BUNDLE</a></li>
+
+              <!-- SERVICES (Desktop dropdown link) -->
+              <li class="nav-item dropdown nav-services">
+                <a class="nav-link dropdown-toggle text-white d-inline-flex align-items-center gap-2 nav-services__desktop"
+                   href="#"
+                   id="servicesDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                  SERVICES
+                  <i class="fa-solid fa-chevron-down services-dd-icon" aria-hidden="true"></i>
+                </a>
+
+                <!-- Desktop dropdown -->
+                <ul class="dropdown-menu dropdown-menu-dark services-dropdown" aria-labelledby="servicesDropdown">
+                  <li><a class="dropdown-item" href="#">SEO Engine</a></li>
+                  <li><a class="dropdown-item" href="#">Creative & Media</a></li>
+                  <li><a class="dropdown-item" href="#">CRO & Automation</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">All Services</a></li>
+                </ul>
+
+                <!-- Mobile toggle (shows only in hamburger mode) -->
+                <button class="nav-link text-white d-inline-flex align-items-center gap-2 nav-services__mobile"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mobileServices"
+                        aria-expanded="false"
+                        aria-controls="mobileServices">
+                  SERVICES
+                  <i class="fa-solid fa-chevron-down services-dd-icon" aria-hidden="true"></i>
+                </button>
+              </li>
+
+              <li class="nav-item"><a class="nav-link text-white" href="/about">ABOUT US</a></li>
+            </ul>
+
+            <!-- VERTICAL RULER (hidden until services open) -->
+            <div class="mobile-menu-divider" aria-hidden="true"></div>
+
+            <!-- RIGHT COLUMN: Services list (hidden until services open) -->
+            <div class="collapse mobile-services" id="mobileServices">
+              <ul class="nav flex-column services-list mb-0">
+                <li><a class="dropdown-item" href="#">SEO Engine</a></li>
+                <li><a class="dropdown-item" href="#">Creative & Media</a></li>
+                <li><a class="dropdown-item" href="#">CRO & Automation</a></li>
+                <li><a class="dropdown-item" href="#">All Services</a></li>
+              </ul>
+            </div>
+
+          </div><!-- /mobile-menu-grid -->
+
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const services = document.getElementById('mobileServices');
+    const grid = document.getElementById('mobileMenuGrid');
+    if (!services || !grid) return;
+
+    services.addEventListener('show.bs.collapse', () => {
+      grid.classList.add('is-services-open');
+    });
+
+    // remove ONLY after it's fully closed to prevent the "drop under" flash
+    services.addEventListener('hidden.bs.collapse', () => {
+      grid.classList.remove('is-services-open');
+    });
+  });
+</script>
+

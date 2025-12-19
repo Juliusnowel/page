@@ -1,0 +1,156 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+  "version": 3,
+  "settings": {
+    "typography": {
+      "fluid": {
+        "minViewportWidth": "375px",
+        "maxViewportWidth": "1440px"
+      },
+      "fontFamilies": [
+        {
+          "name": "Code Pro",
+          "slug": "code-pro",
+          "fontFamily": "\"Code Pro\", system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Code Pro",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "src": ["file:./assets/font/Code Pro LC.otf"]
+            },
+            {
+              "fontFamily": "Code Pro",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "src": ["file:./assets/font/Code Pro Bold LC.otf"]
+            }
+          ]
+        },
+        {
+          "name": "Satoshi",
+          "slug": "satoshi",
+          "fontFamily": "Satoshi, system-ui, sans-serif"
+        },
+        {
+          "name": "Climate Crisis",
+          "slug": "climate-crisis",
+          "fontFamily": "\"Climate Crisis\", system-ui, cursive"
+        },
+        {
+          "name": "Dirtyline",
+          "slug": "dirtyline",
+          "fontFamily": "\"Dirtyline\", system-ui, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Dirtyline",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "src": ["file:./assets/font/dirtyline-36daysoftype-2022.otf"]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "H1",
+          "slug": "h1",
+          "size": "150px",
+          "fluid": { "min": "56px", "max": "150px" }
+        },
+        {
+          "name": "H2",
+          "slug": "h2",
+          "size": "32px",
+          "fluid": { "min": "24px", "max": "32px" }
+        },
+        {
+          "name": "H3",
+          "slug": "h3",
+          "size": "24px",
+          "fluid": { "min": "18px", "max": "24px" }
+        },
+        {
+          "name": "Paragraph",
+          "slug": "p",
+          "size": "20px",
+          "fluid": { "min": "16px", "max": "20px" }
+        },
+        {
+          "name": "Label",
+          "slug": "label",
+          "size": "16px",
+          "fluid": { "min": "13px", "max": "16px" }
+        },
+        {
+          "name": "Placeholder",
+          "slug": "placeholder",
+          "size": "14px",
+          "fluid": { "min": "12px", "max": "14px" }
+        },
+        {
+          "name": "Badge",
+          "slug": "badge",
+          "size": "16px",
+          "fluid": { "min": "12px", "max": "16px" }
+        }
+      ]
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var:preset|font-family|code-pro"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|climate-crisis",
+          "fontSize": "var:preset|font-size|h1",
+          "lineHeight": "0.84",
+          "fontWeight": "900",
+          "letterSpacing": "0",
+          "textAlign": "center"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|code-pro",
+          "fontSize": "var:preset|font-size|h2",
+          "lineHeight": "1.1",
+          "fontWeight": "700"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|code-pro",
+          "fontSize": "var:preset|font-size|h3",
+          "lineHeight": "1.1",
+          "fontWeight": "700"
+        }
+      },
+      "p": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|code-pro",
+          "fontSize": "var:preset|font-size|p",
+          "lineHeight": "1.5",
+          "textAlign": "center"
+        }
+      },
+      "button": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|satoshi",
+          "fontSize": "var:preset|font-size|p",
+          "lineHeight": "1",
+          "fontWeight": "500"
+        }
+      },
+      "span": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|satoshi",
+          "fontSize": "var:preset|font-size|badge",
+          "lineHeight": "1"
+        }
+      }
+    }
+  }
+}

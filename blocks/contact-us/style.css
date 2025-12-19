@@ -1,0 +1,400 @@
+/**
+ * CONTACT US (CF7)
+ */
+
+ .wpcf7-spinner { display: none !important; }
+
+ .contact-us-block{
+   position: relative;
+   color: #e9e9f5;
+   overflow: hidden;
+ 
+   padding: 120px var(--site-padding-desktop, 180px) 160px;
+ 
+   background:
+     radial-gradient(1200px 700px at 15% 20%, rgba(124, 65, 243, 0.55), transparent 58%),
+     radial-gradient(1000px 650px at 90% 25%, rgba(255, 110, 255, 0.35), transparent 55%),
+     #131214;
+ 
+   /* Typography tokens from theme.json presets (+ safe fallbacks) */
+   --cu-h1: var(--wp--preset--font-size--h1, clamp(56px, 10.5vw, 150px));
+   --cu-h2: var(--wp--preset--font-size--h2, clamp(24px, 2.6vw, 32px));
+   --cu-h3: var(--wp--preset--font-size--h3, clamp(18px, 2.2vw, 24px));
+   --cu-p: var(--wp--preset--font-size--p, clamp(16px, 1.6vw, 20px));
+   --cu-label: var(--wp--preset--font-size--label, clamp(13px, 1.2vw, 16px));
+   --cu-placeholder: var(--wp--preset--font-size--placeholder, clamp(12px, 1.1vw, 14px));
+   --cu-badge: var(--wp--preset--font-size--badge, clamp(12px, 1.2vw, 16px));
+ }
+ 
+ .contact-us-block::before{
+   content: "";
+   position: absolute;
+   inset: -2px;
+   pointer-events: none;
+   background: radial-gradient(900px 620px at 50% 20%, rgba(255, 255, 255, 0.10), transparent 65%);
+   opacity: 0.35;
+ }
+ 
+ .contact-us__top{
+   position: relative;
+   z-index: 1;
+   text-align: center;
+   max-width: 980px;
+   margin: 0 auto 70px;
+ }
+ 
+ .contact-us__badge{
+   display: inline-flex;
+   align-items: center;
+   gap: 10px;
+   padding: 8px 14px;
+   border-radius: 999px;
+ 
+   border: 1px solid rgba(255,255,255,0.18);
+   background: rgba(255,255,255,0.06);
+   backdrop-filter: blur(14px);
+   -webkit-backdrop-filter: blur(14px);
+ 
+   margin-bottom: 20px;
+   white-space: nowrap;
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-weight: 700;
+   font-size: var(--cu-badge);
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+   line-height: 1.1;
+ }
+ 
+ .contact-us__badge-dot{
+   width: 7px;
+   height: 7px;
+   border-radius: 99px;
+   background: rgba(255,110,255,0.95);
+   box-shadow: 0 0 18px rgba(255,110,255,0.55);
+ }
+ 
+ .contact-us__title{
+   margin: 18px 0 10px;
+   font-family: var(--wp--preset--font-family--dirtyline);
+   font-size: var(--cu-h1);
+   line-height: 0.9;
+   font-weight: 400; /* Dirtyline registered as 400 */
+ }
+ 
+ .contact-us__subtitle{
+   margin: 0 auto;
+   max-width: 720px;
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-size: var(--cu-p);
+   line-height: 1.5;
+   font-weight: 400;
+   opacity: 0.8;
+ }
+ 
+ .contact-us__grid{
+   position: relative;
+   z-index: 1;
+   display: grid;
+   grid-template-columns: 1.25fr 0.95fr;
+   gap: clamp(18px, 3vw, 38px);
+   align-items: stretch;
+ }
+ 
+ .contact-us__panel{
+   border-radius: 40px;
+   border: 1px solid rgba(255, 255, 255, 0.10);
+   background: rgba(255, 255, 255, 0.03);
+   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+   height: 100%;
+   overflow: hidden;
+ }
+ 
+ .contact-us__panel--form{ padding: clamp(22px, 3vw, 34px); }
+ .contact-us__panel--info{ padding: clamp(18px, 2.5vw, 28px); }
+ 
+ .contact-us__panel-title{
+   margin: 0 0 18px;
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-weight: 700; /* avoid fake 800 */
+   font-size: var(--cu-h3);
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   place-items: center;
+   line-height: 1.1;
+ }
+ 
+ /* Center the small card inside the big right panel */
+ .contact-us__panel--info{
+   display: grid;
+   place-items: center;
+   padding: clamp(18px, 2.5vw, 28px);
+ }
+ 
+ /* Small centered container */
+ .contact-us__info-card{
+   width: min(560px, 100%);
+   border-radius: 40px;
+   border: 1px solid rgba(255, 255, 255, 0.10);
+   background: rgba(255, 255, 255, 0.03);
+   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+   padding: clamp(16px, 2vw, 22px);
+ }
+ 
+ /* CF7 scoped */
+.contact-us-block .wpcf7 form{ margin: 0; }
+.contact-us-block .wpcf7 p{ margin: 0 0 14px; }
+.contact-us-block .wpcf7 br{ display: none; }
+ 
+ .contact-us-block .wpcf7 label{
+   display: block;
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-size: var(--cu-label);
+   font-weight: 700;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+   opacity: 0.65;
+   margin-bottom: 6px;
+   line-height: 1.1;
+ }
+ 
+.contact-us-block .wpcf7 input[type="text"],
+.contact-us-block .wpcf7 input[type="email"],
+.contact-us-block .wpcf7 input[type="tel"],
+.contact-us-block .wpcf7 select,
+.contact-us-block .wpcf7 textarea{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  padding: 12px 14px;
+
+  font-family: var(--wp--preset--font-family--code-pro);
+  font-size: var(--cu-label);
+  font-weight: 400;
+
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.contact-us-block .wpcf7 select{
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+  background-repeat: no-repeat, no-repeat;
+  background-size: 18px 18px, 100% 100%;
+  background-position: right 14px center, center;
+  cursor: pointer;
+}
+
+.contact-us-block .wpcf7 select option{
+  background: #0f0f14;
+  color: #fff;
+}
+ 
+ .contact-us-block .wpcf7 textarea{
+   min-height: 150px;
+   resize: vertical;
+ }
+ 
+ .contact-us-block .wpcf7 input::placeholder,
+ .contact-us-block .wpcf7 textarea::placeholder{
+   color: rgba(255,255,255,0.35);
+   font-size: var(--cu-placeholder);
+ }
+ 
+ .contact-us-block .wpcf7 input:focus,
+ .contact-us-block .wpcf7 select:focus,
+ .contact-us-block .wpcf7 textarea:focus{
+   border-color: rgba(255,255,255,0.35);
+   background: rgba(255,255,255,0.08);
+ }
+ 
+ .contact-us-block .cu-row{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 14px;
+ }
+ 
+ .contact-us-block .wpcf7 .wpcf7-response-output{
+   margin: 16px 0 0;
+   border-radius: 12px;
+   border-color: rgba(255,255,255,0.16);
+   color: rgba(255,255,255,0.9);
+ }
+ 
+ /* Submit wrapper becomes the "button container" */
+ .contact-us-block .wpcf7 .cu-submit-wrap{
+   position: relative;
+   margin-top: 10px;
+ }
+ 
+ /* The real submit stays centered text */
+ .contact-us-block .wpcf7 .cu-submit{
+   width: 100%;
+   border: 0;
+   border-radius: 999px;
+   padding: 14px 22px;
+ 
+   background: #fff;
+   color: #0b0b10;
+ 
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-weight: 700; /* avoid fake 800 */
+   font-size: var(--cu-p);
+   text-transform: uppercase;
+   letter-spacing: 0.06em;
+ 
+   cursor: pointer;
+   transition: transform 180ms ease, box-shadow 180ms ease;
+ }
+ 
+ /* Icon sits beside the centered text */
+ .contact-us-block .wpcf7 .cu-submit-wrap::after{
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+ 
+   width: 18px;
+   height: 18px;
+ 
+   background: url("/wp-content/themes/vite-child/assets/images/Icon.svg") no-repeat center / contain;
+ 
+   /* Move it slightly to the right of the centered text */
+   transform: translate(calc(-50% + 100px), -50%);
+   pointer-events: none;
+ }
+ 
+ /* Hover */
+ .contact-us-block .wpcf7 .cu-submit:hover{
+   transform: translateY(-2px);
+   box-shadow: 0 16px 45px rgba(255,255,255,0.22);
+ }
+ 
+ /* Remove mouse-click focus ring */
+ .contact-us-block .wpcf7 .cu-submit:focus,
+ .contact-us-block .wpcf7 .cu-submit:active{
+   outline: none;
+   box-shadow: none;
+ }
+ 
+ .contact-us__info-item{
+   display: grid;
+   grid-template-columns: 44px 1fr;
+   gap: 14px;
+   align-items: start;
+   padding: 14px;
+   /* border-radius: 18px; */
+   /* background: rgba(255,255,255,0.05);
+   border: 1px solid rgba(255,255,255,0.10); */
+ }
+ 
+ .contact-us__info-item + .contact-us__info-item{ margin-top: 14px; }
+ 
+ .contact-us__info-ico{
+   width: 44px;
+   height: 44px;
+   border-radius: 12px;
+   display: grid;
+   place-items: center;
+   border: 1px solid rgba(255,255,255,0.10);
+   background: rgba(255,255,255,0.06);
+ }
+ 
+ .contact-us__info-ico i{ font-size: 16px; opacity: 0.95; }
+ 
+ .contact-us__info-title{
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-weight: 700; /* avoid fake 900 */
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+   font-size: var(--cu-label);
+   margin-bottom: 4px;
+   line-height: 1.1;
+ }
+ 
+ .contact-us__info-text{
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-size: var(--cu-placeholder);
+   font-weight: 400;
+   opacity: 0.75;
+   margin-bottom: 6px;
+   line-height: 1.4;
+ }
+ 
+ .contact-us__info-strong{
+   font-family: var(--wp--preset--font-family--code-pro);
+   font-size: var(--cu-label);
+   font-weight: 700;
+   letter-spacing: 0.02em;
+   text-transform: uppercase;
+   opacity: 0.95;
+   line-height: 1.2;
+ }
+ 
+ .contact-us__social{
+   display: flex;
+   gap: 12px;
+   justify-content: center;
+   margin-top: 18px;
+ }
+ 
+ .contact-us__social-btn{
+   width: 44px;
+   height: 44px;
+   border-radius: 14px;
+   display: grid;
+   place-items: center;
+   background: rgba(255,255,255,0.85);
+   color: #0b0b10;
+   border: 1px solid rgba(255,255,255,0.14);
+   text-decoration: none;
+   transition: transform 180ms ease, filter 180ms ease;
+ }
+ 
+ .contact-us__social-btn:hover{
+   transform: translateY(-2px);
+   filter: brightness(1.05);
+ }
+ 
+ /* Layout responsiveness */
+ @media (max-width: 1200px){
+   .contact-us-block{
+     padding: 100px var(--site-padding-tablet, 120px) 140px;
+   }
+ 
+   .contact-us__grid{ grid-template-columns: 1fr; }
+ 
+   .contact-us__panel--info{
+     place-items: stretch;
+   }
+ 
+   .contact-us__info-card{
+     width: 100%;
+   }
+ }
+ 
+ /* Size + weight shrink */
+ @media (max-width: 768px){
+   .contact-us-block{
+     padding: 80px var(--site-padding-mobile, 24px) 120px;
+   }
+ 
+   .contact-us__top{ margin-bottom: 40px; }
+   .contact-us-block .cu-row{ grid-template-columns: 1fr; }
+ 
+   /* “Weight shrinks too” */
+   .contact-us__badge,
+   .contact-us__panel-title,
+   .contact-us-block .wpcf7 label,
+   .contact-us__info-title,
+   .contact-us__info-strong,
+   .contact-us-block .wpcf7 .cu-submit{
+     font-weight: 400;
+   }
+ }
+ 

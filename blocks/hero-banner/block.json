@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "vite-child/hero-banner",
+    "version": "1.0.0",
+    "title": "Hero Banner",
+    "category": "layout",
+    "icon": "cover-image",
+    "description": "Hero section with liquid gradient background and animated blobs.",
+    "textdomain": "vite-child",
+    "attributes": {
+      "title":       { "type": "string", "default": "" },
+      "highlight":   { "type": "string", "default": "" },
+      "description": { "type": "string", "default": "" },
+      "badge":       { "type": "string", "default": "" }
+    },
+    "supports": {
+      "html": false,
+      "align": ["full", "wide"]
+    },
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+  }
+  

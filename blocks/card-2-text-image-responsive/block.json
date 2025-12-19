@@ -1,0 +1,38 @@
+{
+  "apiVersion": 2,
+  "name": "vite-child/card-2-text-image-responsive",
+  "title": "Image + Text (2 Col)",
+  "category": "design",
+  "icon": "format-image",
+  "description": "Two-column image + text. Desktop left/right image. Mobile stacks with text first.",
+  "keywords": ["image", "text", "two-column", "responsive"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "spacing": { "margin": true, "padding": true },
+    "color": { "text": false, "background": false, "link": false }
+  },
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "headline": { "type": "string", "default": "" },
+    "paragraphOne": { "type": "string", "default": "" },
+
+    "imageUrl": { "type": "string", "default": "" },
+    "imageAlt": { "type": "string", "default": "" },
+
+    "imagePosition": { "type": "string", "default": "left" },
+    "imageBorderRadius": { "type": "number", "default": 44 }
+  },
+  "example": {
+    "attributes": {
+      "align": "wide",
+      "imagePosition": "left",
+      "headline": "WHO WE ARE",
+      "paragraphOne": "We are the architects of digital growth. Merging data-driven strategy with creative innovation to build ecosystems that thrive.",
+      "imageUrl": "https://picsum.photos/960/960?random=22",
+      "imageAlt": "Team"
+    }
+  },
+  "textdomain": "vite-child"
+}

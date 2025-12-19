@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "vite-child/image-cards-grid",
+    "title": "Image Cards Grid",
+    "category": "design",
+    "icon": "screenoptions",
+    "description": "Centered title + text with a responsive grid of image cards (3 or 4).",
+    "textdomain": "vite-child",
+    "keywords": ["images", "grid", "cards", "gallery", "responsive"],
+    "supports": {
+      "align": ["wide", "full"],
+      "anchor": true,
+      "spacing": { "margin": true, "padding": true },
+      "color": { "text": false, "background": false, "link": false }
+    },
+    "attributes": {
+      "title": { "type": "string", "default": "" },
+      "text": { "type": "string", "default": "" },
+      "images": {
+        "type": "array",
+        "default": [],
+        "items": {
+          "type": "object",
+          "properties": {
+            "url": { "type": "string" },
+            "alt": { "type": "string" }
+          }
+        }
+      }
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "example": {
+      "attributes": {
+        "align": "wide",
+        "title": "LOREM IPSUM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "images": [
+          { "url": "https://picsum.photos/900/900?random=1", "alt": "Card 1" },
+          { "url": "https://picsum.photos/900/900?random=2", "alt": "Card 2" },
+          { "url": "https://picsum.photos/900/900?random=3", "alt": "Card 3" }
+        ]
+      }
+    }
+  }
+  

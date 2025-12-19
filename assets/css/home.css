@@ -1,0 +1,407 @@
+/* Homepage composite styling overrides */
+
+body.home .wp-site-blocks {
+    background: radial-gradient(circle at 20% 10%, rgba(124, 65, 243, 0.25), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(255, 110, 255, 0.18), transparent 42%),
+        radial-gradient(circle at 50% 80%, rgba(66, 32, 120, 0.22), transparent 60%),
+        #0b0616;
+    color: #f5f5f5;
+}
+
+/* Hero smoke + typography */
+.hero-banner-block {
+    background: transparent;
+    padding: clamp(120px, 16vw, 220px) 0 140px;
+    min-height: 90vh;
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-banner-block::before,
+.hero-banner-block::after {
+    content: '';
+    position: absolute;
+    inset: -25% -10% auto -15%;
+    height: 80%;
+    filter: blur(120px);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.hero-banner-block::before {
+    background: radial-gradient(circle at 20% 40%, rgba(124, 65, 243, 0.55), rgba(20, 10, 40, 0));
+    animation: smoke-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-banner-block::after {
+    inset: auto -5% -20% 35%;
+    background: radial-gradient(circle at 60% 60%, rgba(255, 110, 255, 0.45), rgba(20, 10, 30, 0));
+    animation: smoke-drift-rev 22s ease-in-out infinite alternate;
+}
+
+.hero-liquid-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob,
+.smoke-layer {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+    mix-blend-mode: screen;
+    animation: smoke-pulse 16s ease-in-out infinite alternate;
+}
+
+.blob-left {
+    width: 520px;
+    height: 520px;
+    top: -140px;
+    left: -120px;
+    background: rgba(124, 65, 243, 0.55);
+}
+
+.blob-right {
+    width: 640px;
+    height: 640px;
+    top: -60px;
+    right: -260px;
+    background: rgba(255, 110, 255, 0.45);
+}
+
+.smoke-layer--one {
+    width: 840px;
+    height: 840px;
+    left: 10%;
+    top: 30%;
+    background: conic-gradient(from 60deg, rgba(255, 255, 255, 0.05), rgba(124, 65, 243, 0.25), rgba(255, 110, 255, 0.18), rgba(255, 255, 255, 0.05));
+    animation-duration: 26s;
+    animation-name: smoke-spin;
+}
+
+.smoke-layer--two {
+    width: 760px;
+    height: 760px;
+    right: 8%;
+    bottom: 5%;
+    background: conic-gradient(from 220deg, rgba(255, 255, 255, 0.08), rgba(68, 30, 120, 0.2), rgba(255, 110, 255, 0.16), rgba(255, 255, 255, 0.08));
+    animation-duration: 30s;
+    animation-direction: reverse;
+    animation-name: smoke-spin;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-inline: clamp(20px, 4vw, 40px);
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.hero-eyebrow .badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(30px);
+    box-shadow:
+        inset 2px 2px 12px rgba(255, 255, 255, 0.12),
+        -8px -10px 40px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    letter-spacing: 0.06em;
+}
+
+.hero-headline {
+    font-family: 'Climate Crisis', var(--wp--preset--font-family--satoshi), sans-serif;
+    font-size: clamp(64px, 9vw, 138px);
+    line-height: 0.86;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 12px 0 16px;
+    text-transform: uppercase;
+}
+
+.hero-headline__alt {
+    display: inline-block;
+    transform: translateY(6px);
+}
+
+.hero-subline {
+    max-width: 620px;
+    font-family: var(--wp--preset--font-family--inter);
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+}
+
+@keyframes smoke-drift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(20px, -20px, 0) scale(1.05); }
+    100% { transform: translate3d(-20px, 20px, 0) scale(1.02); }
+}
+
+@keyframes smoke-drift-rev {
+    0% { transform: translate3d(0, 0, 0) scale(1.02); }
+    50% { transform: translate3d(-30px, 10px, 0) scale(1.08); }
+    100% { transform: translate3d(30px, -10px, 0) scale(1); }
+}
+
+@keyframes smoke-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes smoke-pulse {
+    0% { transform: scale(1); opacity: 0.55; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(0.97); opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-banner-block::before,
+    .hero-banner-block::after,
+    .blob,
+    .smoke-layer {
+        animation: none !important;
+    }
+}
+
+/* Services tweaks */
+.services-stack-block {
+    margin-top: 20px;
+    gap: 0;
+}
+
+.services-stack__subtitle {
+    max-width: 720px;
+    color: rgba(233, 233, 245, 0.82);
+}
+
+.services-card__label {
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.1em;
+}
+
+.services-card__tags {
+    gap: 12px;
+}
+
+.services-card__visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.14), transparent 40%);
+    mix-blend-mode: screen;
+}
+
+/* Approach (4th section) */
+.approach-section {
+    position: relative;
+    padding: 140px var(--site-padding-desktop, 180px) 120px;
+    color: #f5f5f5;
+    overflow: hidden;
+}
+
+.approach-section::before,
+.approach-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.approach-section::before {
+    width: 640px;
+    height: 640px;
+    left: -220px;
+    top: -140px;
+    background: rgba(124, 65, 243, 0.32);
+}
+
+.approach-section::after {
+    width: 720px;
+    height: 720px;
+    right: -260px;
+    bottom: -200px;
+    background: rgba(255, 110, 255, 0.26);
+}
+
+.approach-section__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.approach-section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.approach-section__title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: 'Climate Crisis', var(--wp--preset--font-family--satoshi), sans-serif;
+    font-size: clamp(64px, 7vw, 120px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.approach-section__title-line {
+    display: block;
+}
+
+.approach-section__icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.approach-section__arrow,
+.approach-section__arrow::before,
+.approach-section__arrow::after {
+    content: '';
+    position: absolute;
+    display: block;
+}
+
+.approach-section__arrow {
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.approach-section__arrow::before {
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    bottom: -1px;
+    left: -8px;
+    transform: rotate(45deg);
+}
+
+.approach-section__arrow::after {
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    top: -1px;
+    right: -8px;
+    transform: rotate(45deg);
+}
+
+.approach-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.approach-step {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    position: relative;
+}
+
+.approach-step__label {
+    font-family: var(--wp--preset--font-family--satoshi);
+    font-weight: 700;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.06em;
+    position: relative;
+}
+
+.approach-step__label::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: -20px;
+    font-size: 96px;
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.approach-step__title {
+    margin: 0 0 4px 0;
+    font-family: var(--wp--preset--font-family--satoshi);
+    font-weight: 900;
+    font-size: clamp(26px, 3vw, 36px);
+    letter-spacing: -0.01em;
+}
+
+.approach-step__meta {
+    margin: 0;
+    color: rgba(233, 233, 245, 0.8);
+    font-family: var(--wp--preset--font-family--inter);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+    .approach-section {
+        padding: 110px var(--site-padding-tablet, 120px) 100px;
+    }
+
+    .approach-section__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .approach-step {
+        grid-template-columns: 90px 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-banner-block {
+        padding: 120px 0 110px;
+    }
+
+    .hero-headline {
+        font-size: clamp(52px, 12vw, 88px);
+    }
+
+    .hero-subline {
+        font-size: 18px;
+    }
+
+    .approach-section {
+        padding: 90px var(--site-padding-mobile, 24px) 80px;
+    }
+
+    .approach-step {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-step__label::after {
+        font-size: 64px;
+        top: -10px;
+    }
+}

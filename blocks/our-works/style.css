@@ -1,0 +1,372 @@
+/**
+ * Our Works Portfolio Block
+ * Layout goal:
+ * - Desktop: 2 big cards (3/6 each) + 3 small cards (2/6 each)
+ * - Tablet: 2 columns
+ * - Mobile: 1 column
+ */
+
+ .our-works-block {
+    position: relative;
+    color: #e9e9f5;
+    padding: 120px var(--site-padding-desktop, 180px) 160px;
+    overflow: hidden;
+  
+    /* rich background (similar vibe to Figma) */
+    background:
+      radial-gradient(1200px 700px at 15% 55%, rgba(124, 65, 243, 0.55), transparent 58%),
+      radial-gradient(900px 600px at 88% 40%, rgba(255, 110, 255, 0.35), transparent 55%)
+      #131214;
+
+    --works-title-offset: clamp(14px, 3vw, 64px);
+  }
+  
+  .our-works-block::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(800px 500px at 50% 30%, rgba(255, 255, 255, 0.10), transparent 65%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  
+  /* make sure content sits above the overlay */
+  .our-works__header,
+  .our-works__grid {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Header */
+  .our-works__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+  
+  .our-works__title-wrapper {
+    flex: 1;
+    max-width: 100%;
+  }
+  
+  .our-works__title{
+    font-family: var(--wp--preset--font-family--dirtyline);
+    font-size: clamp(64px, 12.5vw, 150px);
+    line-height: 0.9;
+    font-weight: 400;
+    margin: 0;
+  
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  
+    flex-wrap: nowrap; /* IMPORTANT: never wrap */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .our-works__title .title-word{
+    display: inline-block;
+    white-space: nowrap; /* IMPORTANT */
+  }
+  
+  .title-word {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .our-works__title .title-word--up{
+    transform: translateY(calc(var(--works-title-offset) * -0.35));
+  }
+  
+  .our-works__title .title-word--down{
+    transform: translateY(var(--works-title-offset));
+  }
+  
+  .our-works__icon {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    font-size: 32px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
+  }
+  
+  /* Grid */
+  .our-works__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+  }
+  
+  /* Cards */
+  .work-card {
+    grid-column: span 2; /* default small cards */
+    height: 100%;
+  
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    cursor: pointer;
+  
+    background: rgba(10, 8, 18, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+  
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  
+  .work-card--lg {
+    grid-column: span 3; /* big cards */
+  }
+  
+  .work-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(600px 220px at 30% 0%, rgba(124, 65, 243, 0.40), transparent 55%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  
+  .work-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.55);
+  }
+  
+  .work-card__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+  }
+  
+  .work-card__header {
+    padding: 26px 26px 0px 26px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  
+  .work-card__title {
+    font-family: var(--wp--preset--font-family--satoshi);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .work-card__arrow {
+    /* remove the circle/pill */
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+  
+    /* keep layout aligned */
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* optional: keep it from shrinking */
+    margin-left: 8px;
+  }
+  
+  .work-card__arrow img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  
+    /* animation */
+    transform-origin: 50% 50%;
+    transition: transform 220ms ease;
+  }
+  
+  /* Hover: rotate diagonal arrow into a right arrow */
+  .work-card:hover .work-card__arrow img {
+    transform: rotate(34deg);
+  }
+
+  .work-card__link{
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .work-card__link:focus-visible{
+    outline: 2px solid rgba(181, 102, 255, 0.65);
+    outline-offset: 6px;
+    border-radius: inherit;
+  }
+  
+  /* make hover work whether you hover the article or the link */
+  .work-card__link:hover{
+    /* nothing needed, but keeps behavior consistent */
+  }
+  
+  .work-card:focus-within{
+    outline: none; /* optional: since link focus-visible handles it now */
+  }  
+  
+  
+  /* Media area */
+  .work-card__media {
+    width: 100%;
+    border-radius: 26px;
+    overflow: hidden;
+  
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+  }
+  
+  .work-card--lg .work-card__media {
+    height: 320px;
+  }
+  
+  .work-card--sm .work-card__media {
+    height: 250px;
+  }
+  
+  .work-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Placeholder */
+  .work-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: linear-gradient(
+      135deg,
+      rgba(124, 65, 243, 0.10) 0%,
+      rgba(255, 110, 255, 0.10) 100%
+    );
+  
+    position: relative;
+  }
+  
+  .work-card__placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 20px
+    );
+  }
+  
+  .placeholder-text {
+    font-family: var(--wp--preset--font-family--inter);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 1;
+  }
+  
+  /* Focus (keyboard accessibility) */
+  .work-card:focus-within {
+    outline: 2px solid rgba(181, 102, 255, 0.65);
+    outline-offset: 4px;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1200px) {
+    .our-works-block {
+      padding: 100px var(--site-padding-tablet, 80px) 140px;
+    }
+  
+    .our-works__header {
+      flex-direction: column;
+      gap: 24px;
+    }
+  
+    .our-works__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+  
+    /* when grid is 2 columns, let browser auto-place cards */
+    .work-card,
+    .work-card--lg,
+    .work-card--sm {
+      grid-column: auto;
+    }
+  
+    .work-card__media {
+      height: 240px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .our-works-block {
+      padding: 80px var(--site-padding-mobile, 24px) 120px;
+    }
+  
+    .our-works__grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  
+    .our-works__icon {
+      width: 64px;
+      height: 64px;
+      font-size: 24px;
+    }
+  
+    .work-card__media {
+      height: 220px;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .title-word,
+    .work-card,
+    .work-card__arrow {
+      transition: none !important;
+    }
+  
+    .work-card:hover {
+      transform: none;
+    }
+  
+    .work-card:hover .work-card__arrow {
+      transform: none;
+    }
+  }
+  

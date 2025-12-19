@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "vite-child/our-works",
+    "version": "1.0.0",
+    "title": "Our Works Portfolio",
+    "category": "layout",
+    "icon": "portfolio",
+    "description": "Portfolio showcase with offset header and 2x3 card grid.",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "OUR WORKS"
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "full",
+            "wide"
+        ]
+    },
+    "textdomain": "vite-child",
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}
+
